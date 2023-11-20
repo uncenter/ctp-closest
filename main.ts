@@ -2,7 +2,7 @@ import DeltaE from "https://esm.sh/delta-e@0.0.8";
 import { variants } from "https://esm.sh/@catppuccin/palette@0.1.5";
 import { ColorTranslator } from "npm:colortranslator";
 
-const getRgb = (input: unknown) => {
+const colorToLab = (input: unknown) => {
 	let color: ColorTranslator;
 	try {
 		// deno-lint-ignore no-explicit-any
@@ -15,12 +15,8 @@ const getRgb = (input: unknown) => {
 		}
 	}
 
-	const { R, G, B } = color;
+	const rgb = Object.values(color.RGBObject);
 
-	return { R, G, B };
-};
-
-const rgb2lab = (rgb: [number, number, number]) => {
 	let r = rgb[0] / 255,
 		g = rgb[1] / 255,
 		b = rgb[2] / 255,
@@ -59,21 +55,20 @@ export function closest(
 	Object.keys(variants[variant]).map((color) => {
 		// @ts-ignore: I hate TypeScript.
 		const hex = variants[variant][color].hex;
-		const { R, G, B } = getRgb(hex);
+		const lab = colorToLab(hex);
 		colors[color] = {
 			hex: hex,
-			lab: rgb2lab([R, G, B]),
+			lab: lab,
 		};
 	});
 
-	const { R, G, B } = getRgb(input);
-	const lab1 = rgb2lab([R, G, B]);
+	const inputLab = colorToLab(input);
 
 	const { hex: closestHex, color: closestColor } = Object.entries(
 		colors
 	).reduce(
 		(acc, [color, { lab, hex }]) => {
-			const delta = DeltaE.getDeltaE00(lab1, lab);
+			const delta = DeltaE.getDeltaE00(inputLab, lab);
 			return delta < acc.nearest ? { nearest: delta, hex, color } : acc;
 		},
 		{ nearest: Infinity, hex: "", color: "" }
