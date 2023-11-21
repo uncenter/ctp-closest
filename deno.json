@@ -1,5 +1,11 @@
 {
-  "tasks": {
-    "dev": "deno run --watch main.ts"
-  }
+	"tasks": {
+		"ctpvert": "deno run src/bin.ts"
+	},
+	"imports": {
+		"@catppuccin/palette": "https://esm.sh/@catppuccin/palette@0.1.5",
+		"colortranslator": "https://esm.sh/colortranslator@3.0.2",
+		"delta-e": "https://esm.sh/delta-e@0.0.8",
+		"fmt/": "https://deno.land/std@0.200.0/fmt/"
+	}
 }

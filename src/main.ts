@@ -1,8 +1,10 @@
-import DeltaE from "https://esm.sh/delta-e@0.0.8";
-import { variants } from "https://esm.sh/@catppuccin/palette@0.1.5";
-import { ColorTranslator } from "npm:colortranslator";
+import type { Flavor } from "./types.ts";
 
-const colorToLab = (input: unknown) => {
+import { variants } from "@catppuccin/palette";
+import { ColorTranslator } from "colortranslator";
+import DeltaE from "delta-e";
+
+const parseColor = (input: unknown) => {
 	let color: ColorTranslator;
 	try {
 		// deno-lint-ignore no-explicit-any
@@ -14,7 +16,10 @@ const colorToLab = (input: unknown) => {
 			throw new Error("Invalid color provided!");
 		}
 	}
+	return color;
+};
 
+const colorToLab = (color: ColorTranslator) => {
 	const rgb = Object.values(color.RGBObject);
 
 	let r = rgb[0] / 255,
@@ -43,26 +48,24 @@ const colorToLab = (input: unknown) => {
 	};
 };
 
-export function closest(
-	input: unknown,
-	variant: "latte" | "frappe" | "macchiato" | "mocha"
-) {
+export function closest(input: unknown, flavor: Flavor) {
 	const colors: Record<
 		string,
 		{ hex: string; lab: { L: number; A: number; B: number } }
 	> = {};
 
-	Object.keys(variants[variant]).map((color) => {
+	Object.keys(variants[flavor]).map((color) => {
 		// @ts-ignore: I hate TypeScript.
-		const hex = variants[variant][color].hex;
-		const lab = colorToLab(hex);
+		const hex = variants[flavor][color].hex;
+		const lab = colorToLab(parseColor(hex));
 		colors[color] = {
 			hex: hex,
 			lab: lab,
 		};
 	});
 
-	const inputLab = colorToLab(input);
+	const inputColor = parseColor(input);
+	const inputLab = colorToLab(inputColor);
 
 	const { hex: closestHex, color: closestColor } = Object.entries(
 		colors
@@ -74,11 +77,17 @@ export function closest(
 		{ nearest: Infinity, hex: "", color: "" }
 	);
 
-	const result = new ColorTranslator(closestHex);
+	const result = parseColor(closestHex);
 
 	return {
-		hex: result.HEX,
-		rgb: result.RGB,
-		name: closestColor,
+		input: {
+			hex: inputColor.HEX,
+			rgb: inputColor.RGBObject,
+		},
+		result: {
+			hex: result.HEX,
+			rgb: result.RGBObject,
+			name: closestColor,
+		},
 	};
 }

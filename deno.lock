@@ -16,6 +16,10 @@
     "https://esm.sh/v134/@types/delta-e@~0.0/index.d.ts": "https://esm.sh/v134/@types/delta-e@0.0.2/index.d.ts"
   },
   "remote": {
+    "https://deno.land/std@0.200.0/assert/assert.ts": "9a97dad6d98c238938e7540736b826440ad8c1c1e54430ca4c4e623e585607ee",
+    "https://deno.land/std@0.200.0/assert/assertion_error.ts": "4d0bde9b374dfbcbe8ac23f54f567b77024fb67dbb1906a852d67fe050d42f56",
+    "https://deno.land/std@0.200.0/flags/mod.ts": "a5ac18af6583404f21ea03771f8816669d901e0ff4374020870334d6f61d73d5",
+    "https://deno.land/std@0.200.0/fmt/colors.ts": "a7eecffdf3d1d54db890723b303847b6e0a1ab4b528ba6958b8f2e754cf1b3bc",
     "https://deno.land/std@0.207.0/assert/_constants.ts": "8a9da298c26750b28b326b297316cdde860bc237533b07e1337c021379e6b2a9",
     "https://deno.land/std@0.207.0/assert/_diff.ts": "58e1461cc61d8eb1eacbf2a010932bf6a05b79344b02ca38095f9b805795dc48",
     "https://deno.land/std@0.207.0/assert/_format.ts": "a69126e8a469009adf4cf2a50af889aca364c349797e63174884a52ff75cf4c7",
@@ -49,8 +53,10 @@
     "https://deno.land/std@0.207.0/assert/unreachable.ts": "4600dc0baf7d9c15a7f7d234f00c23bca8f3eba8b140286aaca7aa998cf9a536",
     "https://deno.land/std@0.207.0/fmt/colors.ts": "34b3f77432925eb72cf0bfb351616949746768620b8e5ead66da532f93d10ba2",
     "https://esm.sh/@catppuccin/palette@0.1.5": "c58182dba571f2d9a3aca9f1d1cbe4f045b226cea4f554ab869fc76f4db05ae0",
+    "https://esm.sh/colortranslator@3.0.2": "d0ee49f2ecd6d689f93d67cddd3fec22dc40bedfc6f99818e205e12e455f5e34",
     "https://esm.sh/delta-e@0.0.8": "64b4bfe4040a064d534bbf93fa04c7558bc8c4b0ec4386540fdf132253b21800",
     "https://esm.sh/v133/@catppuccin/palette@0.1.5/denonext/palette.mjs": "963040d6f97e0ff15f2b703e5f5f7abcc9b80430c55ae681dea2d2a21f525ee8",
+    "https://esm.sh/v134/colortranslator@3.0.2/denonext/colortranslator.mjs": "09d52e5cadc751bf3600e4e83452ee5564919169c043b5337d51d367f36f31c3",
     "https://esm.sh/v134/delta-e@0.0.8/denonext/delta-e.mjs": "12744c95a44a13ba0788cbc8f6ad4de0cb0053d6d4397bfdcfc460ae8791baef"
   }
 }
