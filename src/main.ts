@@ -1,6 +1,4 @@
-import type { Flavor } from "./types.ts";
-
-import { variants } from "@catppuccin/palette";
+import { type AlphaColor, variants } from "@catppuccin/palette";
 import { ColorTranslator } from "colortranslator";
 import DeltaE from "delta-e";
 
@@ -46,49 +44,56 @@ const colorToLab = (color: ColorTranslator) => {
 		L: 116 * y - 16,
 		A: 500 * (x - y),
 		B: 200 * (y - z),
-	};
+	} as { L: number; A: number; B: number };
 };
 
-export function closest(input: unknown, flavor: Flavor) {
-	const colors: Record<
-		string,
-		{ hex: string; lab: { L: number; A: number; B: number } }
-	> = {};
+type DeltaColors = Record<string, { hex: string; delta: number }>;
+type ResultColor = {
+	name: string;
+	hex: string;
+};
 
-	Object.keys(variants[flavor]).map((color) => {
-		// @ts-ignore: I hate TypeScript.
-		const hex = variants[flavor][color].hex;
-		const lab = colorToLab(parseColor(hex));
-		colors[color] = {
-			hex: hex,
-			lab: lab,
-		};
-	});
-
+export function closest(
+	input: unknown
+): Record<string, { name?: string; hex: string }> {
 	const inputColor = parseColor(input);
 	const inputLab = colorToLab(inputColor);
 
-	const { hex: closestHex, color: closestColor } = Object.entries(
-		colors
-	).reduce(
-		(acc, [color, { lab, hex }]) => {
-			const delta = DeltaE.getDeltaE00(inputLab, lab);
-			return delta < acc.nearest ? { nearest: delta, hex, color } : acc;
-		},
-		{ nearest: Infinity, hex: "", color: "" }
-	);
+	const deltasByVariant: Record<string, DeltaColors> = {};
 
-	const result = parseColor(closestHex);
+	for (const [vName, vValue] of Object.entries(variants)) {
+		const colorDeltas: DeltaColors = {};
+
+		for (const [cName, cValue] of Object.entries(vValue)) {
+			const hex = (cValue as AlphaColor).hex;
+			const delta = DeltaE.getDeltaE00(inputLab, colorToLab(parseColor(hex)));
+			colorDeltas[cName] = { hex, delta };
+		}
+
+		deltasByVariant[vName] = colorDeltas;
+	}
+
+	const closestByVariant: Record<string, ResultColor> = {};
+
+	for (const [variant, colorDeltas] of Object.entries(deltasByVariant)) {
+		let minDelta = Number.MAX_VALUE;
+		let closestColor = null;
+
+		for (const [name, colorDelta] of Object.entries(colorDeltas)) {
+			const { delta, hex } = colorDelta;
+			if (delta < minDelta) {
+				minDelta = delta;
+				closestColor = { name: name, hex: hex };
+			}
+		}
+
+		closestByVariant[variant] = closestColor as ResultColor;
+	}
 
 	return {
 		input: {
-			hex: inputColor.HEX,
-			rgb: inputColor.RGBObject,
+			hex: inputColor.HEX.toLowerCase(),
 		},
-		result: {
-			hex: result.HEX,
-			rgb: result.RGBObject,
-			name: closestColor,
-		},
+		...closestByVariant,
 	};
 }
