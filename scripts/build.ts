@@ -15,7 +15,7 @@ await build({
 	importMap: "deno.json",
 	package: {
 		name: "ctpvert",
-		version: Deno.args[0],
+		version: Deno.args[0]?.replace(/^v/, ""),
 		description: "Get the closest Catppuccin color.",
 		author: "uncenter <hi@uncenter.dev>",
 		repository: {
