@@ -1,9 +1,12 @@
 import { build, emptyDir } from "https://deno.land/x/dnt@0.39.0/mod.ts";
 
+const COPY_FILES = ["README.md", "LICENSE", "COPYING.md"];
+
 await emptyDir("./dist");
 
 await build({
 	entryPoints: [{ kind: "bin", name: "ctpvert", path: "./src/bin.ts" }],
+	scriptModule: false,
 	outDir: "./dist",
 	shims: {
 		deno: true,
@@ -20,7 +23,7 @@ await build({
 			url: "https://github.com/uncenter/ctp-closest.git",
 		},
 		license: "MIT",
-		files: ["dist/"],
+		files: [...COPY_FILES, "esm/"],
 		devDependencies: {
 			"@types/delta-e": "0.0.2",
 		},
@@ -28,6 +31,6 @@ await build({
 	packageManager: "pnpm",
 });
 
-for (const file of ["LICENSE", "README.md", "COPYING.md"]) {
+for (const file of COPY_FILES) {
 	Deno.copyFileSync(file, `dist/${file}`);
 }
