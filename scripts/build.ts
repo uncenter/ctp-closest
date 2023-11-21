@@ -28,7 +28,6 @@ await build({
 			"@types/delta-e": "0.0.2",
 		},
 	},
-	packageManager: "pnpm",
 });
 
 for (const file of COPY_FILES) {
