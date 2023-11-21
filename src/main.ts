@@ -19,6 +19,7 @@ const parseColor = (input: unknown) => {
 	return color;
 };
 
+// Adapted from https://github.com/antimatter15/rgb-lab/blob/a6cf2e9e2ff6fcc7965a2e73c019f8ace69b4384/color.js#L28-L47 (under MIT license, see COPYING.md for copyright notice).
 const colorToLab = (color: ColorTranslator) => {
 	const rgb = Object.values(color.RGBObject);
 
