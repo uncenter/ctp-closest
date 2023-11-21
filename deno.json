@@ -1,9 +1,10 @@
 {
 	"tasks": {
-		"ctpvert": "deno run src/bin.ts"
+		"dev:ctpvert": "deno run src/bin.ts",
+		"build": "deno run -A scripts/build.ts"
 	},
 	"imports": {
-		"@catppuccin/palette": "https://esm.sh/@catppuccin/palette@0.1.5",
+		"@catppuccin/palette": "https://esm.sh/@catppuccin/palette@0.2.0",
 		"colortranslator": "https://esm.sh/colortranslator@3.0.2",
 		"delta-e": "https://esm.sh/delta-e@0.0.8",
 		"fmt/": "https://deno.land/std@0.200.0/fmt/"
