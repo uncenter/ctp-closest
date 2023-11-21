@@ -1,6 +1,12 @@
-# ctp-closest
+# ctpvert
 
-Get the closest Catppuccin color to any color!
+Get the closest Catppuccin color.
+
+```
+npx ctpvert@latest
+pnpm dlx ctpvert@latest
+bunx ctpvert@latest
+```
 
 ## License
 
