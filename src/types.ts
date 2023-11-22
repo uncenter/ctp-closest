@@ -1,1 +1,9 @@
-export type Flavor = "latte" | "frappe" | "macchiato" | "mocha";
+export type Color = {
+	hex: string;
+};
+
+export type NamedColor = Color & {
+	name: string;
+};
+
+export type DeltaColor = Color & { delta: number };
