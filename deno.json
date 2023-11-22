@@ -1,6 +1,6 @@
 {
 	"tasks": {
-		"dev:ctpvert": "deno run src/bin.ts",
+		"repl": "deno run src/bin.ts",
 		"build": "deno run -A scripts/build.ts"
 	},
 	"imports": {
