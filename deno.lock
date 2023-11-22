@@ -128,9 +128,11 @@
     "https://deno.land/x/wasmbuild@0.15.1/cache.ts": "9d01b5cb24e7f2a942bbd8d14b093751fa690a6cde8e21709ddc97667e6669ed",
     "https://deno.land/x/wasmbuild@0.15.1/loader.ts": "8c2fc10e21678e42f84c5135d8ab6ab7dc92424c3f05d2354896a29ccfd02a63",
     "https://esm.sh/@catppuccin/palette@0.1.5": "c58182dba571f2d9a3aca9f1d1cbe4f045b226cea4f554ab869fc76f4db05ae0",
+    "https://esm.sh/@catppuccin/palette@0.2.0": "a8bc0f30212dc22829c91215722b784a38f8b34c891da3baa44e8a3ceaacd42d",
     "https://esm.sh/colortranslator@3.0.2": "d0ee49f2ecd6d689f93d67cddd3fec22dc40bedfc6f99818e205e12e455f5e34",
     "https://esm.sh/delta-e@0.0.8": "64b4bfe4040a064d534bbf93fa04c7558bc8c4b0ec4386540fdf132253b21800",
     "https://esm.sh/v133/@catppuccin/palette@0.1.5/denonext/palette.mjs": "963040d6f97e0ff15f2b703e5f5f7abcc9b80430c55ae681dea2d2a21f525ee8",
+    "https://esm.sh/v133/@catppuccin/palette@0.2.0/denonext/palette.mjs": "95c2c6a0a1a9927409834263a8e61984f99c69310e15cce1d6ffa20cf44e5769",
     "https://esm.sh/v134/colortranslator@3.0.2/denonext/colortranslator.mjs": "09d52e5cadc751bf3600e4e83452ee5564919169c043b5337d51d367f36f31c3",
     "https://esm.sh/v134/delta-e@0.0.8/denonext/delta-e.mjs": "12744c95a44a13ba0788cbc8f6ad4de0cb0053d6d4397bfdcfc460ae8791baef"
   }
