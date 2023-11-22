@@ -20,7 +20,7 @@ await build({
 		author: "uncenter <hi@uncenter.dev>",
 		repository: {
 			type: "git",
-			url: "https://github.com/uncenter/ctp-closest.git",
+			url: "https://github.com/uncenter/ctpvert.git",
 		},
 		license: "MIT",
 		files: [...COPY_FILES, "esm/"],
