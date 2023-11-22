@@ -54,7 +54,7 @@ type ResultColor = {
 };
 
 export function closest(
-	input: unknown
+	input: unknown,
 ): Record<string, { name?: string; hex: string }> {
 	const inputColor = parseColor(input);
 	const inputLab = colorToLab(inputColor);

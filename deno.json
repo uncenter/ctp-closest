@@ -8,5 +8,6 @@
 		"colortranslator": "https://esm.sh/colortranslator@3.0.2",
 		"delta-e": "https://esm.sh/delta-e@0.0.8",
 		"fmt/": "https://deno.land/std@0.200.0/fmt/"
-	}
+	},
+	"fmt": { "useTabs": true }
 }
