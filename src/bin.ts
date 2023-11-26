@@ -3,7 +3,7 @@ import { bold, green, red } from "fmt/colors.ts";
 import { closest } from "./main.ts";
 
 while (true) {
-	const color = prompt("> ")?.trim();
+	const color = prompt(">")?.trim();
 	if (!color) continue;
 
 	try {
