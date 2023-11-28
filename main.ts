@@ -4,13 +4,13 @@ import type { AlphaColor } from "https://esm.sh/@catppuccin/palette@0.2.0";
 import { variants } from "https://esm.sh/@catppuccin/palette@0.2.0";
 import DeltaE from "https://esm.sh/delta-e@0.0.8";
 
-import { colorToLab, parseColor } from "./src/utils.ts";
+import { colorToDeltaELAB, parseColor } from "./src/utils.ts";
 
 export function closest(
 	input: unknown,
 ) {
 	const inputColor = parseColor(input);
-	const inputLab = colorToLab(inputColor);
+	const inputLab = colorToDeltaELAB(inputColor);
 
 	const deltasByVariant: Record<string, Record<string, DeltaColor>> = {};
 
@@ -19,7 +19,10 @@ export function closest(
 
 		for (const [cName, cValue] of Object.entries(vValue)) {
 			const hex = (cValue as AlphaColor).hex;
-			const delta = DeltaE.getDeltaE00(inputLab, colorToLab(parseColor(hex)));
+			const delta = DeltaE.getDeltaE00(
+				inputLab,
+				colorToDeltaELAB(parseColor(hex)),
+			);
 			colorDeltas[cName] = { hex, delta };
 		}
 
