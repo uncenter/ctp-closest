@@ -5,7 +5,11 @@ const COPY_FILES = ["README.md", "LICENSE", "COPYING.md"];
 await emptyDir("./dist");
 
 await build({
-	entryPoints: [{ kind: "bin", name: "ctpvert", path: "./src/bin.ts" }],
+	entryPoints: ["./main.ts", {
+		kind: "bin",
+		name: "ctpvert",
+		path: "./src/bin.ts",
+	}],
 	scriptModule: false,
 	outDir: "./dist",
 	shims: {
