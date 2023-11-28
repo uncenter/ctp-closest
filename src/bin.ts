@@ -1,6 +1,6 @@
 import { bold, green, red } from "fmt/colors.ts";
 
-import { closest } from "./main.ts";
+import { closest } from "../main.ts";
 
 while (true) {
 	const color = prompt(">")?.trim();

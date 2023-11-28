@@ -1,10 +1,10 @@
-import type { Color, DeltaColor, NamedColor } from "./types.ts";
+import type { Color, DeltaColor, NamedColor } from "./src/types.ts";
 import type { AlphaColor } from "@catppuccin/palette";
 
 import { variants } from "@catppuccin/palette";
 import DeltaE from "delta-e";
 
-import { colorToLab, parseColor } from "./utils.ts";
+import { colorToLab, parseColor } from "./src/utils.ts";
 
 export function closest(
 	input: unknown,
