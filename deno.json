@@ -3,11 +3,5 @@
 		"repl": "deno run src/bin.ts",
 		"build": "deno run -A scripts/build.ts"
 	},
-	"imports": {
-		"@catppuccin/palette": "https://esm.sh/@catppuccin/palette@0.2.0",
-		"colortranslator": "https://esm.sh/colortranslator@3.0.2",
-		"delta-e": "https://esm.sh/delta-e@0.0.8",
-		"fmt/": "https://deno.land/std@0.207.0/fmt/"
-	},
 	"fmt": { "useTabs": true }
 }

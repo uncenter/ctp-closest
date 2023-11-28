@@ -1,4 +1,4 @@
-import { bold, green, red } from "fmt/colors.ts";
+import { bold, green, red } from "https://deno.land/std@0.207.0/fmt/colors.ts";
 
 import { closest } from "../main.ts";
 

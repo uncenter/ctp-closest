@@ -1,4 +1,4 @@
-import { ColorTranslator } from "colortranslator";
+import { ColorTranslator } from "https://esm.sh/colortranslator@3.0.2";
 
 export function firstToUpperCase(str: string) {
 	return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();

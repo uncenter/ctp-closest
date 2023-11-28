@@ -1,8 +1,8 @@
 import type { Color, DeltaColor, NamedColor } from "./src/types.ts";
-import type { AlphaColor } from "@catppuccin/palette";
+import type { AlphaColor } from "https://esm.sh/@catppuccin/palette@0.2.0";
 
-import { variants } from "@catppuccin/palette";
-import DeltaE from "delta-e";
+import { variants } from "https://esm.sh/@catppuccin/palette@0.2.0";
+import DeltaE from "https://esm.sh/delta-e@0.0.8";
 
 import { colorToLab, parseColor } from "./src/utils.ts";
 
