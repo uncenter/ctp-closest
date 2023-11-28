@@ -13,7 +13,7 @@ bunx ctpvert@latest
 ```ts
 import { closest } from "https://deno.land/x/ctpvert/main.ts";
 
-const lightTheme = {
+const myTheme = {
 	foreground: "#000000",
 	background: "#FFFFFF",
 	accent: "#00ff00",
