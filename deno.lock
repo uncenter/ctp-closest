@@ -76,11 +76,11 @@
     "https://deno.land/x/ts_morph@20.0.0/common/typescript.js": "b9edf0a451685d13e0467a7ed4351d112b74bd1e256b915a2b941054e31c1736",
     "https://deno.land/x/wasmbuild@0.15.1/cache.ts": "9d01b5cb24e7f2a942bbd8d14b093751fa690a6cde8e21709ddc97667e6669ed",
     "https://deno.land/x/wasmbuild@0.15.1/loader.ts": "8c2fc10e21678e42f84c5135d8ab6ab7dc92424c3f05d2354896a29ccfd02a63",
-    "https://esm.sh/@catppuccin/palette@0.2.0": "a8bc0f30212dc22829c91215722b784a38f8b34c891da3baa44e8a3ceaacd42d",
+    "https://esm.sh/@catppuccin/palette@1.2.0": "24b0910540a399c9ac377554a26ec7b7bd1bf4bef124d1f6e2e00498cf96dec7",
     "https://esm.sh/colortranslator@4.1.0": "5ba52dd413c611961ed57c53ea0ec1bb853dc43bf95738e4a5f680d8906b5aeb",
-    "https://esm.sh/delta-e@0.0.8": "64b4bfe4040a064d534bbf93fa04c7558bc8c4b0ec4386540fdf132253b21800",
-    "https://esm.sh/v133/@catppuccin/palette@0.2.0/denonext/palette.mjs": "95c2c6a0a1a9927409834263a8e61984f99c69310e15cce1d6ffa20cf44e5769",
-    "https://esm.sh/v134/delta-e@0.0.8/denonext/delta-e.mjs": "12744c95a44a13ba0788cbc8f6ad4de0cb0053d6d4397bfdcfc460ae8791baef",
-    "https://esm.sh/v135/colortranslator@4.1.0/denonext/colortranslator.mjs": "317faffdb982637d60da1a7fb5dc6e7e3fbb5020cb618cbe53275743f24bcd7d"
+    "https://esm.sh/delta-e@0.0.8": "16f14a2b47277c18d4d57204ac71fe90b0b25b17ccd5b75c81f9b6bb827e42e2",
+    "https://esm.sh/v135/@catppuccin/palette@1.2.0/denonext/palette.mjs": "ac0b3c7fa00100f96ccbcc2a5ac8188a6cf04baae223acccc0bf0bc0ac000355",
+    "https://esm.sh/v135/colortranslator@4.1.0/denonext/colortranslator.mjs": "317faffdb982637d60da1a7fb5dc6e7e3fbb5020cb618cbe53275743f24bcd7d",
+    "https://esm.sh/v135/delta-e@0.0.8/denonext/delta-e.mjs": "12744c95a44a13ba0788cbc8f6ad4de0cb0053d6d4397bfdcfc460ae8791baef"
   }
 }

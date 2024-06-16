@@ -1,7 +1,6 @@
 import type { Color, DeltaColor, NamedColor } from "./src/types.ts";
-import type { AlphaColor } from "https://esm.sh/@catppuccin/palette@0.2.0";
 
-import { variants } from "https://esm.sh/@catppuccin/palette@0.2.0";
+import { flavorEntries } from "https://esm.sh/@catppuccin/palette@1.2.0";
 import DeltaE from "https://esm.sh/delta-e@0.0.8";
 
 import { colorToDeltaELAB, parseColor } from "./src/utils.ts";
@@ -12,26 +11,25 @@ export function closest(
 	const inputColor = parseColor(input);
 	const inputLab = colorToDeltaELAB(inputColor);
 
-	const deltasByVariant: Record<string, Record<string, DeltaColor>> = {};
+	const deltasByFlavor: Record<string, Record<string, DeltaColor>> = {};
 
-	for (const [vName, vValue] of Object.entries(variants)) {
+	for (const [flavor, data] of flavorEntries) {
 		const colorDeltas: Record<string, DeltaColor> = {};
 
-		for (const [cName, cValue] of Object.entries(vValue)) {
-			const hex = (cValue as AlphaColor).hex;
+		for (const [color, { hex }] of data.colorEntries) {
 			const delta = DeltaE.getDeltaE00(
 				inputLab,
 				colorToDeltaELAB(parseColor(hex)),
 			);
-			colorDeltas[cName] = { hex, delta };
+			colorDeltas[color] = { hex, delta };
 		}
 
-		deltasByVariant[vName] = colorDeltas;
+		deltasByFlavor[flavor] = colorDeltas;
 	}
 
-	const closestByVariant: Record<string, NamedColor> = {};
+	const closestByFlavor: Record<string, NamedColor> = {};
 
-	for (const [variant, colorDeltas] of Object.entries(deltasByVariant)) {
+	for (const [flavor, colorDeltas] of Object.entries(deltasByFlavor)) {
 		let minDelta = Number.MAX_VALUE;
 		let closestColor = null;
 
@@ -43,14 +41,14 @@ export function closest(
 			}
 		}
 
-		closestByVariant[variant] = closestColor as NamedColor;
+		closestByFlavor[flavor] = closestColor as NamedColor;
 	}
 
 	return {
 		input: {
 			hex: inputColor.HEX.toLowerCase(),
 		},
-		...closestByVariant,
+		...closestByFlavor,
 	} as {
 		input: Color;
 		latte: NamedColor;
